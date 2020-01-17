@@ -49,14 +49,13 @@ export async function findTache(query) {
 }
 
 export async function storeTache(newTaches) {
-
-    await DB.taches.add(newTaches);
-    // const ret = await DB.taches.update(newTaches, {
-    //     where: {
-    //         and: [{ id: newTaches.id },]
-    //     }
-    // });
-    // if(ret==null) {
-    //     await DB.taches.add(newTaches);
-    // }
+    // await DB.taches.add(newTaches);
+    const ret = await DB.taches.update(newTaches, {
+        where: {
+            and: [{ id: newTaches.id },]
+        }
+    });
+    if(ret==null) {
+        await DB.taches.add(newTaches);
+    }
 }

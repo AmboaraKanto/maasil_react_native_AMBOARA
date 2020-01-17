@@ -23,7 +23,6 @@ export default class HomeScreen extends React.Component {
 
   } 
 
-
   render () {
     getTaches().then((res) => {
       this.setState({taches: res.reverse()});
@@ -36,9 +35,9 @@ export default class HomeScreen extends React.Component {
           contentContainerStyle={styles.contentContainer}>
   
           {
-            taches.map((tache, index) => {
+            taches.map((tache) => {
               return (
-                <ItemComponent key={index} item={tache}/>
+                <ItemComponent key={tache.id} item={tache}/>
               )
             })
           }

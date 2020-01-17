@@ -17,7 +17,9 @@ export default class AjoutScreen extends React.Component {
 
   render() {
     var {date} = this.state;
-    var dateValue = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
+    var mois=(date.getMonth()+1)+"";
+    mois = mois.length==1 ? "0" + mois: mois;
+    var dateValue = date.getDate()+"/"+mois+"/"+date.getFullYear();
     return (
         <View style={styles.container}>
           <View style={styles.inputContainer}>
@@ -38,6 +40,7 @@ export default class AjoutScreen extends React.Component {
       titre: this.state.titre,
       date: this.state.date,
       active: true,
+      id: new Date().getTime(),
     }
     await storeTache(newTache).then(() => {
       this.props.navigation.navigate('Home');
