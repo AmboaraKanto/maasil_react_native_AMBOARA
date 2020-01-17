@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   commentContent: {
     backgroundColor: "#eee",
     borderWidth: 1, 
-    borderColor: "#111", 
+    borderColor: "#aaa", 
     marginVertical: 5,
     padding: 15,
 
