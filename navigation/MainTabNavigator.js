@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import AjoutScreen from '../screens/AjoutScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import PostScreen from '../screens/PostScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -51,26 +51,26 @@ AjoutStack.navigationOptions = {
 
 AjoutStack.path = '';
 
-const SettingsStack = createStackNavigator(
+const PostStack = createStackNavigator(
   {
-    Settings: SettingsScreen,
+    Post: PostScreen,
   },
   config
 );
 
-SettingsStack.navigationOptions = {
+PostStack.navigationOptions = {
   tabBarLabel: 'Posts',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-chatboxes' : 'md-chatboxes'} />
   ),
 };
 
-SettingsStack.path = '';
+PostStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   AjoutStack,
-  SettingsStack,
+  PostStack,
 });
 
 tabNavigator.path = '';

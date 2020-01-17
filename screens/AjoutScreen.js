@@ -1,6 +1,5 @@
 import React from 'react';
 import { ScrollView, View, StyleSheet, Text } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
 
 import {IconInputText} from '../components/InputComponent';
 import { TouchableOpacity } from 'react-native-gesture-handler';
