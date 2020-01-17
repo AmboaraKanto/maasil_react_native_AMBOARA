@@ -11,21 +11,23 @@ import {
 } from 'react-native';
 
 import {ItemComponent} from '../components/ItemComponent';
+import {getTaches} from '../helpers/TacheHelper';
 
 export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
       taches: [
-        {titre: "To do 1", date: "10/01/2020", active: true},
-        {titre: "To do 2", date: "10/01/2020", active: false},
-        {titre: "To do 3", date: "10/01/2020", active: false},
-        {titre: "To do 4", date: "10/01/2020", active: false},
       ] 
     };
+
   } 
 
+
   render () {
+    getTaches().then((res) => {
+      this.setState({taches: res.reverse()});
+    });
     var taches = this.state.taches;
     return (
       <View style={styles.container}>
@@ -48,7 +50,7 @@ export default class HomeScreen extends React.Component {
 }
 
 HomeScreen.navigationOptions = {
-  title: "Mes To Do"
+  title: "Mes taches"
 };
 
 const styles = StyleSheet.create({
